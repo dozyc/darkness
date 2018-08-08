@@ -72,8 +72,13 @@ a:not(.label), a:not(.IssueLabel), a:not(.IssueLabel--big)  {
 }
 
 // Emojies
-.emoji-inner {
+.emoji-inner, .emoji, .g-emoji {
     @include invert-back();
+}
+
+// Highlight your reactions
+.user-has-reacted {
+    background-color: $theme-highlighted-darker !important;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
