@@ -507,6 +507,36 @@ var CONFIG = {
 			name: 'Slack',
 			support: 'ask-developers',
 			hostRegExp: new RegExp('^(.+)?slack\.com$', 'i')
+		},
+		'outlook': {
+			key: 'outlook',
+			name: 'Outlook',
+			support: 'NONE',
+			hostRegExp: new RegExp('^outlook\.office\.com$', 'i')
+		},
+		'wired': {
+			key: 'wired',
+			name: 'WIRED.com',
+			support: 'NONE',
+			hostRegExp: new RegExp('^www\.wired\.com$', 'i')
+		},
+		'soundcloud': {
+			key: 'soundcloud',
+			name: 'Soundcloud',
+			support: 'NONE',
+			hostRegExp: new RegExp('^soundcloud\.com$', 'i')
+		},
+		'arxiv': {
+			key: 'arxiv',
+			name: 'arxiv',
+			support: 'NONE',
+			hostRegExp: new RegExp('^arxiv\.org$', 'i')
+		},
+		'messages': {
+			key: 'messages',
+			name: 'Messages for Android',
+			support: 'NONE',
+			hostRegExp: new RegExp('^messages\.android\.com$', 'i')
 		}
 	}
 };
