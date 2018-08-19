@@ -537,6 +537,12 @@ var CONFIG = {
 			name: 'Messages for Android',
 			support: 'NONE',
 			hostRegExp: new RegExp('^messages\.android\.com$', 'i')
-		}
+		},
+		'googleplay': {
+		    key: 'googleplay', // Must be the same as the object key
+		    name: 'Google Play',
+		    support: 'none',
+		    hostRegExp: new RegExp('^play\.google\.com$', 'i'),
+		},
 	}
 };
