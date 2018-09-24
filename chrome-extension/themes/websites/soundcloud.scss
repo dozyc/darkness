@@ -20,6 +20,9 @@ You should know: all the website's colors are inverted before skinning even star
 * Sometimes you'll want to invert elements back to their original color (e.g. negative images). Use invert-back: .elm { @include invert-back() }
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+// For skinning things back to the soundcloud orange
+$soundcloud_orange: rgb(255, 85, 0);
+
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 // General Elements Styling
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -49,18 +52,35 @@ input {
 }
 
 // preserve the good, unique SoundCloud colors
-.soundTitle {
+.soundTitle, .playButton, .sc-status-icon {
 	@include invert-back()
 }
 
+// bottom buttons - skip back, play, skip fwd
+// skin button colors and background colors looks awkard here, preserve transparency
 .playControls__control {
-	background-color: $theme-background !important;
+	background-color: transparent !important;
 }
 
-// lots of the bottom control buttons have this tag soundcloud "ir"?
-.sc-ir {
-	background-color: $theme-background !important;
+// Shuffle and repeat buttons are nested buttons under a div .playControls_control
+// styling from the div is overidden by the buttons
+// invert-back so we can see the soundcloud orange when activated
+.shuffleControl, .repeatControl, .sc-button-like {
+	background-color: transparent !important;
+	@include invert-back()
 }
+// TODO: the shuffle/repeat buttons are different color than play/skip because of the invert-back
+// leave them different or try to resolve?
+// FYI:
+// repeat modes: m-none, m-one, m-all
+// shuffle modes: <none>, m-shuffling
+// TODO: lighten the "like" button somehow
+
+// volume button, like button also looks awkward with theme colors
+.volume__button  {
+	background-color: transparent !important;
+}
+
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
