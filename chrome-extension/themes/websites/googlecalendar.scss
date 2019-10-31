@@ -63,6 +63,7 @@ input, textarea, input[type="text"] {
 
 // Toolbar background
 .gb_uf,
+// .gb_ce,
 #vr-nav,
 #mainnav,
 .gb_yf,
@@ -92,6 +93,12 @@ input, textarea, input[type="text"] {
 	color: $theme-text !important;
 }
 
+// Dropdowns
+.Cd9hpd, 
+.GXlaye.qRI4pc {
+	border: 1px solid $theme-text !important;
+}
+
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 // Sidebar
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -105,13 +112,18 @@ input, textarea, input[type="text"] {
 .calListRow[aria-selected="true"] .calListSquare,
 .uVccjd[aria-checked="true"],
 .hsrazb {
-	@include invert-back()
+	@include invert-back();
 }
 .uVccjd[aria-checked="false"] {
-	@include invert-back()
+	@include invert-back();
 }
 .uVccjd[aria-checked="false"] .uHMk6b {
 	border-color: black !important;
+}
+
+// Color identifier on event detail popup
+.yyi9pc {
+	@include invert-back();
 }
 
 // Create event button
@@ -149,13 +161,13 @@ input, textarea, input[type="text"] {
 .ccc-text,
 .goog-hsv-palette-sm-swatch,
 .goog-hsv-palette-sm-v-image {
-	@include invert-back()
+	@include invert-back();
 }
 .fM9vSd .FKhct,
 .SQaQVd,
 .rgXNVe,
 .kUwJrc.R4GWv {
-	@include invert-back()
+	@include invert-back();
 }
 .g3VIld {
 	box-shadow: none !important;
@@ -175,7 +187,9 @@ input, textarea, input[type="text"] {
 .listv,
 .lv-row,
 .wk-dummyth,
-.tNDBE {
+.tNDBE,
+.v83gc,
+div[role="main"] > div {
 	background-color: $theme-background-box !important;
 }
 #mainbody,
@@ -224,17 +238,17 @@ input, textarea, input[type="text"] {
 .wgIOqb-XPtOyb,
 .g3dbUc:not(.smECzc),
 .QNFxAc {
-	@include invert-back()
+	@include invert-back();
 }
 // Week-view & Day-view
 .chip dl,
 .EfQccc {
-	@include invert-back()
+	@include invert-back();
 }
 // Agenda-view
 .lv-event-title,
 .Oxm52e {
-	@include invert-back()
+	@include invert-back();
 }
 
 // Darken past event
@@ -280,8 +294,24 @@ input, textarea, input[type="text"] {
 
 // See event details
 .i5a7ie,
+.T7dzVe,
 .XHsn7e.Wbs5sd {
 	@include invert-back()
+}
+.JtukPc {
+	background-color: $theme-background !important;
+}
+.RDlrG {
+	box-shadow: 0 24px 38px 3px rgba(255,255,255,0.14), 0 9px 46px 8px rgba(255,255,255,0.12), 0 11px 15px -7px rgba(255,255,255,0.2)
+}
+
+// Arrow indicating that a event is longer than the view
+.zWcBU {
+	color: invert-back-color($theme-background-box) !important;
+	right: 0px !important;
+}
+.g3dbUc {
+	border: 0 !important;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -308,5 +338,10 @@ input, textarea, input[type="text"] {
 
 .qmv2fc.KKjvXb,
 .sIyjR {
-	@include invert-back()
+	@include invert-back();
+}
+
+.dT3uCc,
+.g3VIld {
+	background: $theme-background-box !important;
 }

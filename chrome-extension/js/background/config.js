@@ -79,7 +79,7 @@ var CONFIG = {
 			key: 'facebook', // Must be the same as the object key
 			name: 'Facebook',
 			support: 'full',
-			hostRegExp: new RegExp('^(www|web|beta)\.facebook\.com$', 'i'),
+			hostRegExp: new RegExp('^(www|web|beta|apps)\.facebook\.com$', 'i'),
 			creators: [ // Who wrote the 80%+ of the skin?
 				{ name: 'Marco Cazzaro', link: 'http://www.marcocazzaro.com/' }
 			],
@@ -138,6 +138,18 @@ var CONFIG = {
 			topContributors: [ // Top 3 contributors of fixes & improvements, excluding the creator
 			]
 		},
+		'googledrive': {
+			key: 'googledrive', // Must be the same as the object key
+			name: 'Google Drive',
+			support: 'full',
+			hostRegExp: new RegExp('^drive\.google\.com$', 'i'),
+			creators: [
+				{ name: 'Derek Bytheway', link: 'https://github.com/derekbtw/' }
+			],
+			topContributors: [ // Top 3 contributors of fixes & improvements, excluding the creator
+				{ name: 'Theis Villumsen', link: 'https://folkmann.it/' }
+			]
+		},
 		'googledocs': {
 			key: 'googledocs', // Must be the same as the object key
 			name: 'Google Docs',
@@ -166,17 +178,6 @@ var CONFIG = {
 			support: 'full',
 			hostRegExp: new RegExp('^contacts\.google\.com$', 'i'),
 			creators: [ // Who wrote the 80%+ of the skin?
-				{ name: 'Theis Villumsen', link: 'https://folkmann.it/' }
-			],
-			topContributors: [ // Top 3 contributors of fixes & improvements, excluding the creator
-			]
-		},
-		'googlephotos': {
-			key: 'googlephotos', // Must be the same as the object key
-			name: 'Google Photos',
-			support: 'full',
-			hostRegExp: new RegExp('^photos\.google\.com$', 'i'),
-			creators: [
 				{ name: 'Theis Villumsen', link: 'https://folkmann.it/' }
 			],
 			topContributors: [ // Top 3 contributors of fixes & improvements, excluding the creator
@@ -365,7 +366,6 @@ var CONFIG = {
 			key: 'darkness', // Must be the same as the object key
 			name: 'Darkness Website',
 			support: 'full',
-			siteForDevelopers: false,
 			hostRegExp: new RegExp('^(darkness.app|local.darkness.com)$', 'i'),
 			creators: [ // Who wrote the 80%+ of the skin?
 				{ name: 'Lior Grossman', link: 'http://liorgrossman.com' },
@@ -377,16 +377,26 @@ var CONFIG = {
 		//--------------------------------------------------------------------
 		// Skins that still need additional work (support: 'in-development')
 		//--------------------------------------------------------------------
-		'googledrive': {
-			key: 'googledrive', // Must be the same as the object key
-			name: 'Google Drive',
+		'googletranslate': {
+			key: 'googletranslate', // Must be the same as the object key
+			name: 'Google Translate',
 			support: 'in-development',
-			hostRegExp: new RegExp('^drive\.google\.com$', 'i'),
+			hostRegExp: new RegExp('^translate\.google\.(.*)$', 'i'),
 			creators: [
-				{ name: 'Derek Bytheway', link: 'https://github.com/derekbtw/' }
+				{ name: 'Theis Villumsen', link: 'https://folkmann.it/' }
 			],
 			topContributors: [ // Top 3 contributors of fixes & improvements, excluding the creator
+			]
+		},
+		'googlephotos': {
+			key: 'googlephotos', // Must be the same as the object key
+			name: 'Google Photos',
+			support: 'in-development',
+			hostRegExp: new RegExp('^photos\.google\.com$', 'i'),
+			creators: [
 				{ name: 'Theis Villumsen', link: 'https://folkmann.it/' }
+			],
+			topContributors: [ // Top 3 contributors of fixes & improvements, excluding the creator
 			]
 		},
 		'wikipedia': {
@@ -444,10 +454,39 @@ var CONFIG = {
 			topContributors: [ // Top 3 contributors of fixes & improvements, excluding the creator
 			]
 		},
+		'martinfowler': {
+			key: 'martinfowler', // Must be the same as the object key
+			name: 'MartinFowler.com',
+			support: 'in-development',
+			hostRegExp: new RegExp('martinfowler\.com$', 'i'),
+			creators: [
+				{ name: 'Hosam Aly', link: 'https://github.com/hosamaly' }
+			],
+			topContributors: [ // Top 3 contributors of fixes & improvements, excluding the creator
+			]
+		},
+		'paypal': {
+			key: 'paypal', // Must be the same as the object key
+			name: 'PayPal',
+			support: 'in-development',
+			hostRegExp: new RegExp('^(.+)?paypal\.com$', 'i'),
+			creators: [ // Who wrote the 80%+ of the skin?
+				{ name: 'Bartosz Zalewski', link: 'https://github.com/reveur404' }
+			],
+			topContributors: [ // Top 3 contributors of fixes & improvements, excluding the creator
+			]
+		},
 
 		//--------------------------------------------------------------------
 		// Ask developers for help on the following websites
 		//--------------------------------------------------------------------
+		'cloudcraft': {
+			key: 'cloudcraft', // Must be the same as the object key
+			name: 'Cloudcraft',
+			support: 'ask-developers',
+			siteForDevelopers: true,
+			hostRegExp: new RegExp('^cloudcraft\.co$', 'i')
+		},
 		'bitbucket': {
 			key: 'bitbucket', // Must be the same as the object key
 			name: 'Bitbucket',
@@ -464,24 +503,38 @@ var CONFIG = {
 		},
 		'serverfault': {
 			key: 'serverfault', // Must be the same as the object key
-			name: 'ServerFault',
+			name: 'Server Fault',
 			support: 'ask-developers',
 			siteForDevelopers: true,
 			hostRegExp: new RegExp('^serverfault\.com$', 'i')
 		},
 		'askubuntu': {
 			key: 'askubuntu', // Must be the same as the object key
-			name: 'askUbuntu',
+			name: 'Ask Ubuntu',
 			support: 'ask-developers',
 			siteForDevelopers: true,
 			hostRegExp: new RegExp('^askubuntu\.com$', 'i')
 		},
 		'w3schools': {
 			key: 'w3schools', // Must be the same as the object key
-			name: 'w3schools',
+			name: 'W3Schools',
 			support: 'ask-developers',
 			siteForDevelopers: true,
 			hostRegExp: new RegExp('^www\.w3schools\.com$', 'i')
+		},
+		'codepen': {
+			key: 'codepen', // Must be the same as the object key
+			name: 'Codepen',
+			support: 'ask-developers',
+			siteForDevelopers: true,
+			hostRegExp: new RegExp('^codepen\.io$', 'i')
+		},
+		'jsbin': {
+			key: 'jsbin', // Must be the same as the object key
+			name: 'JS Bin',
+			support: 'ask-developers',
+			siteForDevelopers: true,
+			hostRegExp: new RegExp('^jsbin\.com$', 'i')
 		},
 		'box': {
 			key: 'box', // Must be the same as the object key
@@ -491,7 +544,7 @@ var CONFIG = {
 		},
 		'fontawesome': {
 			key: 'fontawesome', // Must be the same as the object key
-			name: 'FontAwesome',
+			name: 'Font Awesome',
 			support: 'ask-developers',
 			siteForDevelopers: true,
 			hostRegExp: new RegExp('^fontawesome\.com$', 'i')
@@ -508,41 +561,47 @@ var CONFIG = {
 			support: 'ask-developers',
 			hostRegExp: new RegExp('^(.+)?slack\.com$', 'i')
 		},
-		'outlook': {
-			key: 'outlook',
-			name: 'Outlook',
-			support: 'NONE',
-			hostRegExp: new RegExp('^outlook\.office\.com$', 'i')
-		},
-		'wired': {
-			key: 'wired',
-			name: 'WIRED.com',
-			support: 'NONE',
-			hostRegExp: new RegExp('^www\.wired\.com$', 'i')
-		},
-		'soundcloud': {
-			key: 'soundcloud',
-			name: 'Soundcloud',
-			support: 'NONE',
-			hostRegExp: new RegExp('^soundcloud\.com$', 'i')
-		},
-		'arxiv': {
-			key: 'arxiv',
-			name: 'arxiv',
-			support: 'NONE',
-			hostRegExp: new RegExp('^arxiv\.org$', 'i')
-		},
-		'messages': {
-			key: 'messages',
-			name: 'Messages for Android',
-			support: 'NONE',
-			hostRegExp: new RegExp('^messages\.android\.com$', 'i')
-		},
-		'googleplay': {
-		    key: 'googleplay', // Must be the same as the object key
-		    name: 'Google Play',
-		    support: 'none',
-		    hostRegExp: new RegExp('^play\.google\.com$', 'i'),
-		},
+		'googlescript': {
+			key: 'googlescript', // Must be the same as the object key
+			name: 'Google Script',
+			support: 'ask-developers',
+			hostRegExp: new RegExp('script\.google\.com$', 'i')
+        },
+        'outlook': {
+        key: 'outlook',
+        name: 'Outlook',
+        support: 'NONE',
+        hostRegExp: new RegExp('^outlook\.office\.com$', 'i')
+        },
+        'wired': {
+        key: 'wired',
+        name: 'WIRED.com',
+        support: 'NONE',
+        hostRegExp: new RegExp('^www\.wired\.com$', 'i')
+        },
+        'soundcloud': {
+        key: 'soundcloud',
+        name: 'Soundcloud',
+        support: 'NONE',
+        hostRegExp: new RegExp('^soundcloud\.com$', 'i')
+        },
+        'arxiv': {
+        key: 'arxiv',
+        name: 'arxiv',
+        support: 'NONE',
+        hostRegExp: new RegExp('^arxiv\.org$', 'i')
+        },
+        'messages': {
+        key: 'messages',
+        name: 'Messages for Android',
+        support: 'NONE',
+        hostRegExp: new RegExp('^messages\.android\.com$', 'i')
+        },
+        'googleplay': {
+        key: 'googleplay', // Must be the same as the object key
+        name: 'Google Play',
+        support: 'none',
+        hostRegExp: new RegExp('^play\.google\.com$', 'i'),
+        },
 	}
 };

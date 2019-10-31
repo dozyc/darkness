@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 // General Elements Styling
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-body {
+body, .gh-header, div[role="main"] > div {
     background-color: $theme-background !important;
 }
 
@@ -14,6 +14,14 @@ button {
     background-color: $theme-button-background !important;
     color: $theme-button-text !important;
     border-color: $theme-border !important;
+
+    &.btn-octicon {
+        background-color: transparent !important;
+    }
+    &[disabled] {
+        background-color: lighten($theme-button-background, 15%) !important;
+        color: lighten($theme-button-text, 15%) !important;
+    }
 }
 
 // All inputs
@@ -36,12 +44,19 @@ svg {
 // Links
 a:not(.label), a:not(.IssueLabel), a:not(.IssueLabel--big)  {
     color: $theme-link !important;
-    &:visited:not(.label), &:visited:not(.IssueLabel), &:visited:not(.IssueLabel--big) {
+    &:visited:not(.label), &:visited:not(.IssueLabel), &:visited:not(.IssueLabel--big), &:visited(.btn) {
         color: $theme-link-visited !important;
     }
-    &:active:not(.label), &:active:not(.IssueLabel), &:active:not(.IssueLabel--big) {
+    &:active:not(.label), &:active:not(.IssueLabel), &:active:not(.IssueLabel--big), &:active(.btn) {
         color: $theme-link-active !important;
     }
+}
+a.Header-link {
+    background: transparent !important;
+}
+a.muted-link {
+    background: transparent !important;
+    color: $theme-link-visited !important;
 }
 
 // buttonlinks
@@ -76,6 +91,15 @@ a:not(.label), a:not(.IssueLabel), a:not(.IssueLabel--big)  {
     @include invert-back();
 }
 
+// Popups
+.Popover-message {
+    color: $theme-text !important;
+}
+.Popover-message:before,
+.Popover-message:after {
+    border-bottom-color: $theme-background-box !important;
+}
+
 // Highlight your reactions
 .user-has-reacted {
     background-color: $theme-highlighted-darker !important;
@@ -86,11 +110,17 @@ a:not(.label), a:not(.IssueLabel), a:not(.IssueLabel--big)  {
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 //top toolbar
 .header,
+.Header-old,
 .header > div,
-.js-header-wrapper > .Header {
+.js-header-wrapper > .Header,
+.gh-header .gh-header-sticky.is-stuck+.gh-header-shadow {
     background-color: $theme-background-toolbar !important;
     border-color: $theme-border !important;
     color: $theme-text !important;
+}
+// Dashboard sidemenu
+.dashboard-sidebar {
+    background-color: $theme-background-box !important;
 }
 
 // "This repository"
@@ -102,7 +132,8 @@ a:not(.label), a:not(.IssueLabel), a:not(.IssueLabel--big)  {
 
 // Search bar
 .js-header-wrapper > .Header input[type="text"].header-search-input,
-.header input[type="text"].header-search-input {
+.header input[type="text"].header-search-input,
+.Header .header-search-wrapper{
 	background: #cbc9c8 !important;
 }
 .js-header-wrapper > .Header input[type="text"].header-search-input::-webkit-input-placeholder,
@@ -138,6 +169,10 @@ a:not(.label), a:not(.IssueLabel), a:not(.IssueLabel--big)  {
 .dropdown-menu form > button {
     background-color: $theme-background-box !important;
 }
+.dropdown-item:focus, 
+.dropdown-item:hove {
+    background-color: $theme-highlighted-darker !important;
+}
 
 .svg-tip {
     background: $theme-tooltip-background !important;
@@ -148,7 +183,7 @@ a:not(.label), a:not(.IssueLabel), a:not(.IssueLabel--big)  {
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 // dashboard page
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-// right side repositories sidebar
+// right side repositories sidebar and left dashboard-menu
 .dashboard-sidebar > div,
 .dashboard-sidebar > div > h3,
 .dashboard-sidebar > div > div,
@@ -244,6 +279,22 @@ h3.bg-white {
     background-color: transparent !important;
 }
 
+.Box {
+    background-color: $theme-background-box !important;
+}
+
+// Notice
+.js-notice.Box,
+.js-notice {
+    border-color: darken($theme-tooltip-background, 10%) !important;
+    background-color: $theme-tooltip-background !important;
+    color: $theme-tooltip-text !important;
+}
+.js-notice a,
+.js-notice h2 {
+    color: darken($theme-tooltip-text, 15%) !important;
+}
+
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 // Main Home Page
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -317,6 +368,11 @@ a.btn,a.btn:visited,a.btn:hover,
     background: $theme-button-background !important;
     color: $theme-button-text !important;
     border-color: $theme-border !important;
+}
+
+// social buttons (watch, star, fork)
+a.social-count {
+    color: $theme-text !important;
 }
 
 //contributions legend undo the tile colors
@@ -423,6 +479,12 @@ button.muted-link {
     color: $theme-text !important;
 }
 
+// Topic tags
+a.topic-tag {
+    background-color: $theme-button-background !important;
+    color: $theme-button-text !important;
+}
+
 //readme
 .readme,
 .readme > h3,
@@ -476,11 +538,16 @@ button.muted-link {
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 .table-list-header,
 .Box-body,
+.Box-row,
+.Box-header,
 .blankslate //milestones blank slate 
 {
     background: $theme-background-box !important;
     border-color: $theme-border !important;
     color: $theme-text !important;
+}
+.Box-row--focus-gray.navigation-focus {
+    background-color: lighten($theme-background-box, 5%) !important;
 }
 
 //fix table list header icon colors
@@ -506,7 +573,6 @@ button.muted-link {
 }
 
 .timeline-comment,
-.comment-form-head, //comment header
 .form-control, //text area for comments
 .drag-and-drop,
 .comment-body {
@@ -515,8 +581,23 @@ button.muted-link {
     color: $theme-text !important;
 }
 
-.timeline-comment {
-    background: none !important;
+.timeline-comment-wrapper .timeline-comment.current-user:before,
+.timeline-comment-wrapper>.timeline-comment:before, 
+.timeline-new-comment .timeline-comment:before {
+    border-right-color: $theme-background-box !important;
+}
+.timeline-comment-wrapper .timeline-comment.current-user:after,
+.timeline-comment-wrapper>.timeline-comment:after, 
+.timeline-new-comment .timeline-comment:after {
+    border-right-color: $theme-background-toolbar !important;
+}
+
+.comment-form-head .tabnav-tab.selected{
+    background: $theme-background-box !important;
+}
+
+.author {
+    background-color: transparent !important;
 }
 
 //selecting them
@@ -528,6 +609,7 @@ button.muted-link {
 
 //header for timeline
 .timeline-comment > .timeline-comment-header,
+.comment-form-head, //comment header
 .timeline-comment-action {
     background: $theme-background-toolbar !important;
     border-color: $theme-border !important;
@@ -577,8 +659,17 @@ button.muted-link {
 .State, .label, .IssueLabel, .IssueLabel--big {
     @include invert-back();
 }
-a.label, a.IssueLabel, a.IssueLabel--big {
-    color: white !important
+.discussion-item-closed .discussion-item-icon, 
+.discussion-item-review.is-rejected.is-writer .discussion-item-icon,
+.discussion-item-reopened .discussion-item-icon {
+    @include invert-back();
+}
+
+// Edited comment
+summary.js-notice {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: $theme-link !important;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -605,6 +696,20 @@ a.label, a.IssueLabel, a.IssueLabel--big {
 
 .commit-icon svg {
     background-color: transparent !important;
+}
+
+// Pull-state
+.branch-action-state-clean .branch-action-icon {
+    @include invert-back();
+}
+.branch-action-state-clean .branch-action-body:before {
+    border-right-color: invert-back-color(#34d058) !important;
+}
+.branch-action-state-clean .branch-action-body {
+    border-color: invert-back-color(#34d058) !important;
+}
+.branch-action-body:before {
+    border-right-color: $theme-background-box !important;
 }
 
 .navigation-focus .muted-link {
@@ -812,7 +917,7 @@ button.flash-close {
     background-color: transparent !important;
 }
 button.flash-close svg {
-    color: $theme-button-background !important;
+    color: invert-back-color($theme-tooltip-text) !important;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -851,9 +956,6 @@ svg.octicon.octicon-check {
 .labels-list-item .label, .IssueLabel, .IssueLabel--big {
     -webkit-filter: invert(1) !important;
 }
-.labels-list-item .label span, .IssueLabel span, .IssueLabel--big span {
-    -webkit-filter: invert(1) !important;
-}
 .label-edit label {
     -webkit-filter: invert(1) !important;
 }
@@ -865,7 +967,12 @@ svg.octicon.octicon-check {
 }
 .labels .label, .IssueLabel, .IssueLabel--big {
     -webkit-filter: invert(1) !important;
+}
+.label[style*="color: #ffffff"], .IssueLabel[style*="color: #ffffff"], .IssueLabel a[style*="color: #ffffff"], .IssueLabel--big[style*="color: #ffffff"] {
     color: white !important;
+}
+.label[style*="color: #000000"], .IssueLabel[style*="color: #000000"], .IssueLabel a[style*="color: #000000"], .IssueLabel--big[style*="color: #000000"] {
+    color: black !important;
 }
 .js-new-label-swatches button{
     -webkit-filter: invert(1) !important;
@@ -878,6 +985,9 @@ svg.octicon.octicon-check {
 }
 .label-select-menu-item .color {
     -webkit-filter: invert(1) !important;
+}
+.label-description .muted-link {
+    background: transparent !important;
 }
 
 .closed-banner {

@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-// Iceberg Theme
+// Matrix Theme
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 
 @import "common.scss";
@@ -67,7 +67,7 @@ $theme-highlighted-darker: invert-back-color(darken($c1, 10%));
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Primary buttons (usually originally blue)
-$theme-button-text: invert-back-color(lighten($c8, 5%));
+$theme-button-text: invert-back-color(darken($c8, 10%));
 $theme-button-background: invert-back-color($c2);
 
 // Secondary buttons (usually originally red / orange)
@@ -92,4 +92,4 @@ $theme-tooltip-background: invert-back-color($c0);
 $theme-tooltip-text: invert-back-color($c9);
 
 // Notices (usually appearing in the top of page for few seconds after user action)
-$theme-notices: invert-back-color($c9);
+$theme-notices: invert-back-color($c0);
