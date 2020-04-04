@@ -40,6 +40,7 @@ $trello-pink:	#CD5A91;
 $trello-mint:	#4BBF6B;
 $trello-cyan:	#00AECC;
 $trello-gray:	#838C91;
+$star: #f2d600;
 
 // Original colors in RGB from HEX
 $trello-rgb-blue: red($trello-blue) + ", " + green($trello-blue) + ", " + blue($trello-blue);
@@ -65,6 +66,16 @@ $trello-dark-pink:		invert-back-color(darken($trello-pink, $percent));
 $trello-dark-mint:		invert-back-color(darken($trello-mint, $percent));
 $trello-dark-cyan:		invert-back-color(darken($trello-cyan, $percent));
 $trello-dark-gray:		invert-back-color(darken($trello-gray, $percent));
+
+$trello-rgb: 	($trello-blue, $trello-rgb-blue, $trello-dark-blue), 
+				($trello-yellow, $trello-rgb-yellow, $trello-dark-yellow),
+				($trello-green, $trello-rgb-green, $trello-dark-green),
+				($trello-red, $trello-rgb-red, $trello-dark-red),
+				($trello-purple, $trello-rgb-purple, $trello-dark-purple),
+				($trello-pink, $trello-rgb-pink, $trello-dark-pink),
+				($trello-mint, $trello-rgb-mint, $trello-dark-mint),
+				($trello-cyan, $trello-rgb-cyan, $trello-dark-cyan),
+				($trello-gray, $trello-rgb-gray, $trello-dark-gray);
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 // General Elements Styling
@@ -140,6 +151,18 @@ a:visited {
 	color: $theme-link !important;
 }
 
+// Homepage left menu
+.home-left-sidebar-container {
+	// Active page
+	.AqhrxyGOPcyvoq._1hc34_9rc6xcjf, 
+	.AqhrxyGOPcyvoq._2StUnMlO8T43Gd {
+		background-color: $theme-highlighted-darker !important;
+		span:first-child {
+			color: $theme-notices !important;
+		}
+	}
+}
+
 // The homepage when logged in
 .body-tabbed-page,
 .member-boards-view, 
@@ -196,6 +219,9 @@ span.tile__selected__1yvgN {
 .cXRfpp {
 	background: transparent !important;
 }
+.XwjoIA6WQIxxgb._38Hb42Tqr7ZDDK {
+	@include invert-back();
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
 // Handling setting darker trello colors
@@ -206,126 +232,24 @@ body, .body-tabbed-page {
 	background-color: $theme-background !important;
 }
 
-// Color change preview
-.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$trello-rgb-blue});'],
-.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$trello-rgb-yellow});'],
-.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$trello-rgb-green});'],
-.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$trello-rgb-red});'],
-.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$trello-rgb-purple});'],
-.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$trello-rgb-pink});'],
-.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$trello-rgb-mint});'],
-.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$trello-rgb-cyan});'],
-.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$trello-rgb-gray});'] {
-	-webkit-filter: invert(0) !important;
-}
-
-// Blue elements
-body[style*="background-color: rgb(#{$trello-rgb-blue});"],
-#trello-root[style*="background-color: rgb(#{$trello-rgb-blue});"],
-#classic-body[style*="background-color: rgb(#{$trello-rgb-blue});"],
-.background-box[style*="background-color: #{$trello-blue};"],
-.js-fill-background-preview[style*="background-color: rgb(#{$trello-rgb-blue});"],
-.compact-board-tile-link-thumbnail[style*="background-color: #{$trello-blue};"],
-.compact-board-tile-background[style*="background-color: #{$trello-blue};"],
-.board-tile[style*="background-color: rgb(#{$trello-rgb-blue});"],
-.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$trello-rgb-blue});"] {
-	background-color: $trello-dark-blue !important;
-}
-// Yellow elements
-body[style*="background-color: rgb(#{$trello-rgb-yellow});"],
-#trello-root[style*="background-color: rgb(#{$trello-rgb-yellow});"],
-#classic-body[style*="background-color: rgb(#{$trello-rgb-yellow});"],
-.background-box[style*="background-color: #{$trello-yellow};"],
-.js-fill-background-preview[style*="background-color: rgb(#{$trello-rgb-yellow});"],
-.compact-board-tile-link-thumbnail[style*="background-color: #{$trello-yellow};"],
-.compact-board-tile-background[style*="background-color: #{$trello-yellow};"],
-.board-tile[style*="background-color: rgb(#{$trello-rgb-yellow});"],
-.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$trello-rgb-yellow});"] {
-	background-color: $trello-dark-yellow !important;
-}
-// Green elements
-body[style*="background-color: rgb(#{$trello-rgb-green});"],
-#trello-root[style*="background-color: rgb(#{$trello-rgb-green});"],
-#classic-body[style*="background-color: rgb(#{$trello-rgb-green});"],
-.background-box[style*="background-color: #{$trello-green};"],
-.js-fill-background-preview[style*="background-color: rgb(#{$trello-rgb-green});"],
-.compact-board-tile-link-thumbnail[style*="background-color: #{$trello-green};"],
-.compact-board-tile-background[style*="background-color: #{$trello-green};"],
-.board-tile[style*="background-color: rgb(#{$trello-rgb-green});"],
-.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$trello-rgb-green});"] {
-	background-color: $trello-dark-green !important;
-}
-// Red elements
-body[style*="background-color: rgb(#{$trello-rgb-red});"],
-#trello-root[style*="background-color: rgb(#{$trello-rgb-red});"],
-#classic-body[style*="background-color: rgb(#{$trello-rgb-red});"],
-.background-box[style*="background-color: #{$trello-red};"],
-.js-fill-background-preview[style*="background-color: rgb(#{$trello-rgb-red});"],
-.compact-board-tile-link-thumbnail[style*="background-color: #{$trello-red};"],
-.compact-board-tile-background[style*="background-color: #{$trello-red};"],
-.board-tile[style*="background-color: rgb(#{$trello-rgb-red});"],
-.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$trello-rgb-red});"] {
-	background-color: $trello-dark-red !important;
-}
-// Purple elements
-body[style*="background-color: rgb(#{$trello-rgb-purple});"],
-#trello-root[style*="background-color: rgb(#{$trello-rgb-purple});"],
-#classic-body[style*="background-color: rgb(#{$trello-rgb-purple});"],
-.background-box[style*="background-color: #{$trello-purple};"],
-.js-fill-background-preview[style*="background-color: rgb(#{$trello-rgb-purple});"],
-.compact-board-tile-link-thumbnail[style*="background-color: #{$trello-purple};"],
-.compact-board-tile-background[style*="background-color: #{$trello-purple};"],
-.board-tile[style*="background-color: rgb(#{$trello-rgb-purple});"],
-.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$trello-rgb-purple});"] {
-	background-color: $trello-dark-purple !important;
-}
-// Pink elements
-body[style*="background-color: rgb(#{$trello-rgb-pink});"],
-#trello-root[style*="background-color: rgb(#{$trello-rgb-pink});"],
-#classic-body[style*="background-color: rgb(#{$trello-rgb-pink});"],
-.background-box[style*="background-color: #{$trello-pink};"],
-.js-fill-background-preview[style*="background-color: rgb(#{$trello-rgb-pink});"],
-.compact-board-tile-link-thumbnail[style*="background-color: #{$trello-pink};"],
-.compact-board-tile-background[style*="background-color: #{$trello-pink};"],
-.board-tile[style*="background-color: rgb(#{$trello-rgb-pink});"],
-.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$trello-rgb-pink});"] {
-	background-color: $trello-dark-pink !important;
-}
-// Mint elements
-body[style*="background-color: rgb(#{$trello-rgb-mint});"],
-#trello-root[style*="background-color: rgb(#{$trello-rgb-mint});"],
-#classic-body[style*="background-color: rgb(#{$trello-rgb-mint});"],
-.background-box[style*="background-color: #{$trello-mint};"],
-.js-fill-background-preview[style*="background-color: rgb(#{$trello-rgb-mint});"],
-.compact-board-tile-link-thumbnail[style*="background-color: #{$trello-mint};"],
-.compact-board-tile-background[style*="background-color: #{$trello-mint};"],
-.board-tile[style*="background-color: rgb(#{$trello-rgb-mint});"],
-.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$trello-rgb-mint});"] {
-	background-color: $trello-dark-mint !important;
-}
-// Cyan elements
-body[style*="background-color: rgb(#{$trello-rgb-cyan});"],
-#trello-root[style*="background-color: rgb(#{$trello-rgb-cyan});"],
-#classic-body[style*="background-color: rgb(#{$trello-rgb-cyan});"],
-.background-box[style*="background-color: #{$trello-cyan};"],
-.js-fill-background-preview[style*="background-color: rgb(#{$trello-rgb-cyan});"],
-.compact-board-tile-link-thumbnail[style*="background-color: #{$trello-cyan};"],
-.compact-board-tile-background[style*="background-color: #{$trello-cyan};"],
-.board-tile[style*="background-color: rgb(#{$trello-rgb-cyan});"],
-.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$trello-rgb-cyan});"] {
-	background-color: $trello-dark-cyan !important;
-}
-// Gray elements
-body[style*="background-color: rgb(#{$trello-rgb-gray});"],
-#trello-root[style*="background-color: rgb(#{$trello-rgb-gray});"],
-#classic-body[style*="background-color: rgb(#{$trello-rgb-gray});"],
-.background-box[style*="background-color: #{$trello-gray};"],
-.js-fill-background-preview[style*="background-color: rgb(#{$trello-rgb-gray});"],
-.compact-board-tile-link-thumbnail[style*="background-color: #{$trello-gray};"],
-.compact-board-tile-background[style*="background-color: #{$trello-gray};"],
-.board-tile[style*="background-color: rgb(#{$trello-rgb-gray});"],
-.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$trello-rgb-gray});"] {
-	background-color: $trello-dark-gray !important;
+@each $color, $rgb, $dark in $trello-rgb {
+	.js-fill-background-preview[style='background-image: url("undefined"); background-color: rgb(#{$rgb});'] {
+		-webkit-filter: invert(0) !important;
+	}
+	div[data-test-id="header-boards-menu-popover"] div[style='background-image: url("null"); background-color: rgb(#{$rgb});'] {
+		background-color: invert-back-color($dark) !important;
+	}
+	body[style*="background-color: rgb(#{$rgb});"],
+	#trello-root[style*="background-color: rgb(#{$rgb});"],
+	#classic-body[style*="background-color: rgb(#{$rgb});"],
+	.background-box[style*="background-color: #{$rgb};"],
+	.js-fill-background-preview[style*="background-color: rgb(#{$rgb});"],
+	.compact-board-tile-link-thumbnail[style*="background-color: #{$color};"],
+	.compact-board-tile-background[style*="background-color: #{$color};"],
+	.board-tile[style*="background-color: rgb(#{$rgb});"],
+	.board-backgrounds-section-tile > .image[style*="background-color: rgb(#{$rgb});"] {
+		background-color: $dark !important;
+	}
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -371,6 +295,20 @@ span._1iYprMLTeGpyW9,
 	color: $theme-text !important;
 }
 
+// Upgrade-button for teams
+.upgrade-prompt-button {
+	background-color: $theme-highlighted !important;
+	> div:first-child {
+		background-color: darken($theme-highlighted, 15%) !important;
+		span {
+			color: black !important;
+		}
+	}
+	> div:last-child {
+		color: black !important;
+	}
+}
+
 // User avatar
 .bXFhPW {
 	@include invert-back();
@@ -396,17 +334,6 @@ span._1iYprMLTeGpyW9,
 }
 .checklist-progress-bar-current.js-checklist-progress-bar.checklist-progress-bar-current-complete {
 	@include invert-back();
-}
-
-// Board menu
-.board-wrapper.is-show-menu .board-menu {
-	box-shadow: none !important;
-}
-.board-menu-tab-content {
-	background-color: $theme-background-toolbar !important;
-}
-.boards-drawer{
-	background-color: $theme-background-toolbar !important;
 }
 
 // Lists
@@ -462,27 +389,63 @@ span._1iYprMLTeGpyW9,
 	background: rgba(255,255,255,.15) !important;
 }
 // Board name
-.board-header-btn-name .board-header-btn-text {
-	color: $theme-text !important;
+.board-header-btn-name .board-header-btn-text,
+._2sW4tjfiXjrots {
+	color: rgba(256,256,256,0.5) !important;
 }
-// Boards-menu
-._1uIlQNJLg02V8T,
+// Board team
+._1-vN8NL177VLaD {
+	color: rgba(200,200,200,0.5) !important;
+}
+// Team groups, headers
+._3VPAPxMuDaGlU3 {
+	color: $theme-url !important;
+}
+
+// Boards-popover-menu 
 .khihAkM9Ux6EHW {
-	background-color: $theme-background-toolbar !important;
+	background-color: invert-back-color($theme-background-toolbar) !important;
+	form {
+		@include invert-back();
+	}
 }
+#trello-root:not(.body-dark-board-background):not(.body-light-board-background):not(.body-gray-board-background) {
+	.khihAkM9Ux6EHW {
+		@include invert-back();
+	}
+}
+
 // Boards
-._3LO8BCnYMEeBzC:before {
+._3LO8BCnYMEeBzC:before,
+._26ZVKC32nK5LUz:before {
 	background: black !important;
 	opacity: 0.6 !important;
 }
+// Board backgroundimage
+._1-xqt-RbCBt-Sv div[style*="background-image:"] {
+	-webkit-filter: invert(0) !important;
+}
 // star board
-._1Iv-11Wutx7UNK button {
+._1Iv-11Wutx7UNK button,
+._1-xqt-RbCBt-Sv button {
 	background-color: transparent !important;
 }
+.j3V1IT4DDVNieg span[name=star] {
+	color: $star !important;
+}
 ._2wu8NkXkdivxpw._2XH3eISfyp3NpN span[name=star] {
-	color: invert-back-color(#f2d600) !important;
+	color: invert-back-color($star) !important;
+}
+// Minimize button
+._2nlCooRQipe5Hi {
+	background-color: transparent !important;
 }
 
+// Buttons at the bottom of boards-menu
+.bHF9FML4QxCHFM {
+	background: transparent !important;
+	color: $theme-url !important;
+}
 
 // Active home
 ._2OJyF5qancPNze._2wv_gyeqs9bKWb, 
@@ -529,12 +492,32 @@ iframe.attachment-viewer-frame-preview-iframe {
 	background: transparent !important;
 }
 
-// Notification drawer
-.window.mod-notifications.mod-cards {
-	background-color: $theme-background-toolbar !important;
+// Popup drawers
+.js-react-root {
+	#layer-manager-popover > div {
+		background-color: $theme-background-toolbar !important;
+		> div:first-child,
+		> div:last-child {
+			button {
+				background-color: transparent !important;
+			}
+		}
+		button[data-test-id="view-all"],
+		button[data-test-id="mark-all-read-button"] {
+			background-color: transparent !important;
+		}
+		div[data-test-id="unread-notification"] {
+			background: transparent !important;
+		}
+	}
 }
-.notification-actions span {
-	color: $theme-url !important;
+// Notification highlight in toolbar
+button._3W-zkl4-bnVKzJ,
+button._3W-zkl4-bnVKzJ:hover {
+	background: $theme-tooltip-background !important;
+	span {
+		color: $theme-tooltip-text !important;
+	}
 }
 
 // Notifications
