@@ -328,8 +328,20 @@ var injectSettingsScriptToTab = function(tab) {
 				code: code,
 				runAt: 'document_start',
 				allFrames: false // not in iframes
-			});
-		});
+			}, _=>{
+				let e = chrome.runtime.lastError;
+				if(e !== undefined){
+				  console.log(tab.id, _, e);
+				}
+			  }
+			);
+		}, _=>{
+			let e = chrome.runtime.lastError;
+			if(e !== undefined){
+			  console.log(tab.id, _, e);
+			}
+		  }
+		);
 	})
 };
 
@@ -434,7 +446,13 @@ var injectPageJsToTab = function(tab, siteKey, themeKey) {
 		code: code,
 		runAt: 'document_start',
 		allFrames: false // not to iframes inside
-	});
+	}, _=>{
+		let e = chrome.runtime.lastError;
+		if(e !== undefined){
+		  console.log(tab.id, _, e);
+		}
+	  }
+	);
 };
 
 // Save indications that current user is developer
