@@ -335,13 +335,11 @@ var injectSettingsScriptToTab = function(tab) {
 				}
 			  }
 			);
-		}, _=>{
 			let e = chrome.runtime.lastError;
 			if(e !== undefined){
 			  console.log(tab.id, _, e);
 			}
-		  }
-		);
+		});
 	})
 };
 
